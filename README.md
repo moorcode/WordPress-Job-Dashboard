@@ -1,9 +1,7 @@
 # Build a WordPress Job Dashboard
 
 
-## Recommended Expertise
-
-WordPress development, PHP, REST APIs, JavaScript, performance optimization, and plugin architecture
+## Recommended Expertise: WordPress development, PHP, REST APIs, JavaScript, performance optimization, and plugin architecture
 
 
 
