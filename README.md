@@ -4,7 +4,7 @@
 
 ---
 
-# Contents
+## Contents
 
 - [Introduction](https://github.com/moorcode/WordPress-Job-Dashboard/blob/main/README.md#introduction)
 - Create the custom plugin
@@ -19,13 +19,13 @@
 
 ---
 
-# Introduction
+## Introduction
 
 This manual lists the steps to build a job dashboard in WordPress. The steps recorded here were executed using an established environment, thus some essential steps could be missing for you, if you are establishing your dev environment for the first time. This job dashboard serves to show to WordPress / Automattic how I build plugins using WordPress features & to offer a native WordPress job search experience to [moorcoders](https://moorcode.wordpress.com/).
 
 ---
 
-# Process & Requirements
+### Process & Requirements
 
 - Environment Setup (one-time)
 - WordPress & Plugin Setup (one-time)
@@ -33,9 +33,7 @@ This manual lists the steps to build a job dashboard in WordPress. The steps rec
 
 ---
 
-# Architecture
-
-## Development Environment
+### Architecture
 
 ```text
 Development Environement
