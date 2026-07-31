@@ -10,7 +10,7 @@
   - [Purpose](https://github.com/moorcode/WordPress-Job-Dashboard#purpose)
   - [Process & Requirements](https://github.com/moorcode/WordPress-Job-Dashboard#process--requirements)
   - [Overall Architecture](https://github.com/moorcode/WordPress-Job-Dashboard#overall-architecture)
-  - [System Aarchitecture](https://github.com/moorcode/WordPress-Job-Dashboard#sytem-architecture)
+  - [System Architecture](https://github.com/moorcode/WordPress-Job-Dashboard#sytem-architecture)
   - [Repository Structure](https://github.com/moorcode/WordPress-Job-Dashboard#repository-structure)
 - [Set Up the Development Environment](https://github.com/moorcode/WordPress-Job-Dashboard#environment)
 - [Create the custom plugin](https://github.com/moorcode/WordPress-Job-Dashboard#i-create-plugin)
