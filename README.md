@@ -7,9 +7,12 @@
 ## Contents
 
 - [Introduction](https://github.com/moorcode/WordPress-Job-Dashboard/blob/main/README.md#introduction)
+  - [Purpose](https://github.com/moorcode/WordPress-Job-Dashboard#purpose)
   - [Process & Requirements](https://github.com/moorcode/WordPress-Job-Dashboard#process--requirements)
-  - [Architecture](https://github.com/moorcode/WordPress-Job-Dashboard#architecture)
+  - [Overall Architecture](https://github.com/moorcode/WordPress-Job-Dashboard#overall-architecture)
+  - [System Aarchitecture](https://github.com/moorcode/WordPress-Job-Dashboard#sytem-architecture)
   - [Repository Structure](https://github.com/moorcode/WordPress-Job-Dashboard#repository-structure)
+- [Set Up the Development Environment](https://github.com/moorcode/WordPress-Job-Dashboard#environment)
 - [Create the custom plugin](https://github.com/moorcode/WordPress-Job-Dashboard#i-create-plugin)
 - Build the database and API framework
 - Connect to one API (e.g., Ashby)
@@ -36,106 +39,154 @@ This manual lists the steps to build a job dashboard in WordPress. The steps rec
 
 ---
 
-### Architecture
+### Overall Architecture
 
 ```text
-Development Environement
+
+Development Environment (WSL2 Ubuntu)
 │
 ├── Git
-├── PHP
+├── Apache
+├── MySQL
+├── PHP 8.x
 ├── Composer
-├── MySQL / MariaDB
-├── Apache or Nginx
 ├── WP-CLI
 ├── Node.js
 │   └── npm
-└── VS Code
+├── VS Code + WSL Extension
+└── Browser
         │
         ▼
 Local WordPress Project
 │
 ├── WordPress Core
-│
+├── wp-config.php
 ├── wp-content/
 │   │
 │   ├── plugins/
 │   │   │
 │   │   └── job-api-manager/
 │   │       │
-│   │       ├── Plugin Bootstrap
+│   │       ├── Bootstrap
+│   │       │   ├── Plugin Loader
+│   │       │   ├── Activation
+│   │       │   ├── Deactivation
+│   │       │   └── Uninstall
 │   │       │
-│   │       ├── Admin Settings
+│   │       ├── Settings
 │   │       │   ├── API Keys
 │   │       │   ├── Default Companies
-│   │       │   └── Default Roles
+│   │       │   ├── Default Roles
+│   │       │   ├── Sync Settings
+│   │       │   └── Cache Settings
 │   │       │
 │   │       ├── Database
+│   │       │   ├── Schema
+│   │       │   ├── Migrations
 │   │       │   ├── Companies
 │   │       │   ├── Roles
 │   │       │   ├── Cached Jobs
 │   │       │   ├── Favorites
 │   │       │   └── Alerts
 │   │       │
-│   │       ├── API Layer
-│   │       │   ├── Interface
+│   │       ├── API
+│   │       │   ├── Provider Interface
+│   │       │   ├── HTTP Client
 │   │       │   ├── Ashby
 │   │       │   ├── Greenhouse
 │   │       │   ├── Lever
-│   │       │   └── Workday
+│   │       │   ├── Workday
+│   │       │   └── Response Normalizer
 │   │       │
-│   │       ├── Admin UI
+│   │       ├── Services
+│   │       │   ├── Job Sync
+│   │       │   ├── Search
+│   │       │   ├── Favorites
+│   │       │   ├── Alerts
+│   │       │   ├── Company Service
+│   │       │   └── Notification Service
+│   │       │
+│   │       ├── REST
+│   │       │   ├── Jobs Endpoint
+│   │       │   ├── Companies Endpoint
+│   │       │   ├── Favorites Endpoint
+│   │       │   └── Alerts Endpoint
+│   │       │
+│   │       ├── Admin
+│   │       │   ├── Dashboard
 │   │       │   ├── Manage Companies
 │   │       │   ├── Manage Roles
-│   │       │   ├── Edit Job Details
-│   │       │   └── Sync Jobs
+│   │       │   ├── Manual Sync
+│   │       │   ├── Job Editor
+│   │       │   └── Settings
 │   │       │
 │   │       ├── Frontend
-│   │       │   ├── Shortcode
-│   │       │   ├── Gutenberg Block
-│   │       │   ├── Job Listings
-│   │       │   ├── Search & Filters
+│   │       │   ├── Shortcodes
+│   │       │   ├── Gutenberg Blocks
+│   │       │   ├── Templates
+│   │       │   ├── Search 
+│   │       │   ├── Filters
 │   │       │   ├── Company Pages
-│   │       │   ├── Job Detail Pages
+│   │       │   ├── Job Pages
 │   │       │   └── Favorites
 │   │       │
 │   │       └── Assets
 │   │           ├── CSS
-│   │           └── JavaScript
+│   │           ├── JavaScript
+│   │           └── Images
 │   │
 │   ├── themes/
 │   └── uploads/
 │
-├── composer.json
-├── package.json
-└── .gitignore
+├── Local Database
+└── REST API
         │
         ▼
-Development Workflow
+External ATS Providers
 │
-├── WP-CLI
-│   ├── Download WordPress
-│   ├── Configure WordPress
-│   ├── Install WordPress
-│   ├── Activate Plugin
-│   └── Run Cron
+├── Ashby
+├── Greenhouse
+├── Lever
+├── Workday
+└── Future Providers
+```
+
+### System Architecture
+
+```text
+Browser
+    │
+    ▼
+WordPress
+    │
+    ▼
+Job API Manager Plugin
 │
-├── Composer
-│   ├── Install Dependencies
-│   └── Autoload Classes
+├── Admin
 │
-├── npm
-│   ├── Build CSS/JS
-│   └── Watch Assets
+├── REST API
 │
-├── Git
-│   ├── Feature Branches
-│   ├── Commits
-│   └── Releases
+├── Database Layer
 │
-└── Browser Testing
-        │
-        ▼
-Production WordPress Site
+├── ATS Provider Interface
+│   │
+│   ├── Ashby
+│   ├── Greenhouse
+│   ├── Lever
+│   └── Workday
+│
+├── Cache Layer
+│
+├── Search
+│
+├── Favorites
+│
+├── Alerts
+│
+└── Frontend
+    │
+    ▼
+WordPress Pages
 ```
 
 # Repository Structure
@@ -144,66 +195,89 @@ Production WordPress Site
 wordpress-job-dashboard/
 │
 ├── README.md
+├── LICENSE
 ├── .gitignore
 ├── composer.json
+├── composer.lock
 ├── package.json
+├── package-lock.json
 ├── wp-config-sample.php
 │
 ├── wordpress/
-│   └── (WordPress core - usually ignored in Git)
+│   └── (WordPress Core)
 │
 ├── wp-content/
-│   │
 │   ├── plugins/
-│   │   │
 │   │   └── job-api-manager/
-│   │       │
-│   │       ├── job-api-manager.php
-│   │       ├── uninstall.php
-│   │       ├── includes/
-│   │       │   ├── class-plugin-bootstrap.php
-│   │       │   ├── class-database.php
-│   │       │   ├── class-rest-api.php
-│   │       │   └── class-settings.php
-│   │       │
-│   │       ├── admin/
-│   │       │   ├── class-admin-ui.php
-│   │       │   └── settings-pages.php
-│   │       │
-│   │       ├── api/
-│   │       │   ├── interface-ats-provider.php
-│   │       │   ├── class-ashby.php
-│   │       │   ├── class-greenhouse.php
-│   │       │   ├── class-lever.php
-│   │       │   └── class-workday.php
-│   │       │
-│   │       ├── database/
-│   │       │   ├── migrations.php
-│   │       │   └── schema.php
-│   │       │
-│   │       ├── frontend/
-│   │       │   ├── shortcodes.php
-│   │       │   ├── blocks/
-│   │       │   └── templates/
-│   │       │
-│   │       ├── assets/
-│   │       │   ├── css/
-│   │       │   └── js/
-│   │       │
-│   │       └── tests/
 │   │
 │   ├── themes/
-│   │
 │   └── uploads/
 │
 ├── docs/
 │   ├── architecture.md
 │   ├── api-integrations.md
-│   └── database-schema.md
+│   ├── database-schema.md
+│   ├── deployment.md
+│   └── roadmap.md
+│
+├── scripts/
+│   ├── setup.sh
+│   ├── install-wordpress.sh
+│   └── reset-db.sh
+│
 │
 └── .github/
     └── workflows/
-        └── tests.yml
+	├── php-tests.yml
+	├── coding-standards.yml
+        └── build.yml
 ```
+
+## 0. Set Up Environment
+### Verify Ubuntu & Linux Kernel
+### Update Ubuntu
+### Install Basic Development Tools
+### Install Apache Web Server
+### Install MySQL
+### Install PHP
+### Secure Database
+### Create WordPress Database
+
+WSL2** Ubuntu
+│
+├── Git
+├── PHP
+├── Composer
+├── MySQL
+├── Apache
+├── WP-CLI
+├── Node.js + npm
+├── VS Code integration
+│
+└── WordPress Job Dashboard Project
+
+
+lsb_release -a (expected: Ubuntu 22.04 LTS or Ubuntu 22.04 LTS)
+uname -a (expected: microsoft-standard-WSL2)
+
+sudo apt update
+sudo apt upgrade -y
+
+sudo apt install -y curl wget unzip git software-properties-common (installs several useful command-line tools on a Debian/Ubuntu-based Linux system)
+git --version (git version 2.x.x)
+
+sudo apt install apache2 -y
+sudo service apache2 start
+sudo service apache2 status (expected: active (running))
+
+**WSL2 note
+Apache will not automatically start after reboot unless configured. For development, manually starting it is fine.
+Test: When http://localhost is put inside Windows browser you should see "Apache2 Ubuntu Default Page"
+
+sudo apt install mysql-server -y (install)
+sudo service mysql start (start)
+sudo service mysql status (check)
+sudo mysql_secure_installation (secure)
+
 
 ## I. Create Plugin
