@@ -27,9 +27,12 @@
 
 ## Introduction
 
-This manual lists the steps to build a job dashboard in WordPress. The steps recorded here were executed using an established environment, thus some essential steps could be missing for you, if you are establishing your dev environment for the first time. This job dashboard serves to show WordPress / Automattic how I build using WordPress features & to offer a native WordPress job search experience to [moorcoders](https://moorcode.wordpress.com/).
+This manual lists the steps to build a job dashboard in WordPress. The steps recorded here were executed using an established environment, thus some essential steps could be missing for you, if you are establishing your dev environment for the first time.
 
 ---
+
+### Purpose
+To demonstrate to WordPress / Automattic that I build plugins using WordPress features; To offer a native WordPress job search experience to  [moorcoders](https://moorcode.wordpress.com/).
 
 ### Process & Requirements
 
