@@ -27,7 +27,7 @@
 
 ## Introduction
 
-This manual lists the steps to build a job dashboard in WordPress. The steps recorded here were executed using an established environment, thus some essential steps could be missing for you, if you are establishing your dev environment for the first time.
+This manual lists the steps to build a job platform, with WordPress serving as the CMS, authentication layer, and content management system. Put another way, these steps build a WordPress-native job aggregation platform with a plugin architecture that can consume multiple ATS APIs, cache results locally, and expose them through WordPress pages, REST endpoints, Gutenberg blocks, and shortcodes. The steps recorded here were executed using an established environment, thus some essential steps could be missing for you, if you are establishing your dev environment for the first time.
 
 
 ### Purpose
