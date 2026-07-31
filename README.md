@@ -235,19 +235,48 @@ wordpress-job-dashboard/
 ##### Verify / Update Ubuntu & Linux Kernel, Install Basic Development Tools, Install Apache Web Server, MySQL, PHP, Secure Database, Create WordPress Database
 
 
-1. lsb_release -a (expected: Ubuntu 22.04 LTS or Ubuntu 22.04 LTS)
-2. uname -a (expected: microsoft-standard-WSL2)
+```bash
+lsb_release -a
+```
+(expected: Ubuntu 22.04 LTS or Ubuntu 22.04 LTS)
 
 
-3. sudo apt update
-4. sudo apt upgrade -y
+```bash
+uname -a
+```
+(expected: microsoft-standard-WSL2)
 
-5. sudo apt install -y curl wget unzip git software-properties-common (installs several useful command-line tools on a Debian/Ubuntu-based Linux system)
-6. git --version (git version 2.x.x)
 
-7. sudo apt install apache2 -y
-8. sudo service apache2 start
-9. sudo service apache2 status (expected: active (running))
+```bash
+sudo apt update
+```
+
+```bash
+sudo apt upgrade -y
+```
+
+```bash
+sudo apt install -y curl wget unzip git software-properties-common
+```
+(installs several useful command-line tools on a Debian/Ubuntu-based Linux system)
+
+```bash
+git --version
+```
+(git version 2.x.x)
+
+```bash
+sudo apt install apache2 -y
+```
+
+```bash
+sudo service apache2 start
+```
+
+```bash
+sudo service apache2 status
+```
+ (expected: active (running))
 
 **WSL2 note
 Apache will not automatically start after reboot unless configured. For development, manually starting it is fine.
