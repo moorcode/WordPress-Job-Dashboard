@@ -235,8 +235,6 @@ wordpress-job-dashboard/
 ## Steps
 
 ### 0. Set Up Environment
-__Verify / Update Ubuntu & Linux Kernel, Install Basic Development Tools, Install Apache Web Server, MySQL, PHP, Secure Database, Create WordPress Database__
-
 
 ```bash
 lsb_release -a
