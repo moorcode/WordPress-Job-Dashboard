@@ -229,33 +229,18 @@ wordpress-job-dashboard/
 
 ---
 
-##Steps
+## Steps
 
 ## 0. Set Up Environment
-### Verify Ubuntu & Linux Kernel
-### Update Ubuntu
-### Install Basic Development Tools
-### Install Apache Web Server
-### Install MySQL
-### Install PHP
-### Secure Database
-### Create WordPress Database
-
-WSL2** Ubuntu
-│
-├── Git
-├── PHP
-├── Composer
-├── MySQL
-├── Apache
-├── WP-CLI
-├── Node.js + npm
-├── VS Code integration
-│
-└── WordPress Job Dashboard Project
+#### Verify Ubuntu & Linux Kernel
+#### Update Ubuntu
+#### Install Basic Development Tools
+#### Install Apache Web Server, MySQL, PHP
+#### Secure Database
+#### Create WordPress Database
 
 
-lsb_release -a (expected: Ubuntu 22.04 LTS or Ubuntu 22.04 LTS)
+1. lsb_release -a (expected: Ubuntu 22.04 LTS or Ubuntu 22.04 LTS)
 uname -a (expected: microsoft-standard-WSL2)
 
 sudo apt update
