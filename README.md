@@ -232,12 +232,7 @@ wordpress-job-dashboard/
 ## Steps
 
 ### 0. Set Up Environment
-##### Verify Ubuntu & Linux Kernel
-##### Update Ubuntu
-##### Install Basic Development Tools
-##### Install Apache Web Server, MySQL, PHP
-##### Secure Database
-##### Create WordPress Database
+##### Verify / Update Ubuntu & Linux Kernel, Install Basic Development Tools, Install Apache Web Server, MySQL, PHP, Secure Database, Create WordPress Database
 
 
 1. lsb_release -a (expected: Ubuntu 22.04 LTS or Ubuntu 22.04 LTS)
