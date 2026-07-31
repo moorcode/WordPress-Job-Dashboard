@@ -24,7 +24,7 @@ This manual lists the steps to build a job platform, with WordPress serving as t
 
 
 ### Purpose
-To demonstrate to WordPress / Automattic that I build plugins using WordPress features; To offer a native WordPress job search experience to  [moorcoders](https://moorcode.wordpress.com/).
+To demonstrate to WordPress / Automattic that I'm a WordPress builder; To offer a native WordPress job search experience to  [moorcoders](https://moorcode.wordpress.com/).
 
 ### Process & Requirements
 
