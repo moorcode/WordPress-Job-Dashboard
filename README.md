@@ -299,4 +299,4 @@ sudo service mysql status
 sudo mysql_secure_installation
 ```
 
-## I. Create Plugin
+## 1. Create Plugin
