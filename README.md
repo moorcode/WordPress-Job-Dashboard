@@ -276,7 +276,7 @@ sudo service apache2 status
 ```
  expected: active (running)
 
->[!NOTE:**WSL2 note]
+>[!WSL2 note]
 >Apache will not automatically start after reboot unless configured. For development, manually starting it is fine.
 >Test: When http://localhost is put inside Windows browser you should see "Apache2 Ubuntu Default Page"
 
