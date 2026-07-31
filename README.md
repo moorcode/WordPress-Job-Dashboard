@@ -36,6 +36,7 @@ To demonstrate to WordPress / Automattic that I build plugins using WordPress fe
 ### Process & Requirements
 
 - Environment Setup (one-time)
+	- [WSL2 Ubuntu](https://ubuntu.com/wsl), Git, Apache, MySQL, PHP, Composer, WP-CLI, Node/npm, VS Code 
 - WordPress & Plugin Setup (one-time)
 - Feature Development (iterative)
 
