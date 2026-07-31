@@ -238,16 +238,12 @@ __Verify / Update Ubuntu & Linux Kernel, Install Basic Development Tools, Instal
 ```bash
 lsb_release -a
 ```
-(expected: Ubuntu 22.04 LTS or Ubuntu 22.04 LTS)
-
-
+expected: Ubuntu 22.04 LTS or Ubuntu 22.04 LTS
 
 ```bash
 uname -a
 ```
-(expected: microsoft-standard-WSL2)
-
-
+expected: microsoft-standard-WSL2
 
 ```bash
 sudo apt update
@@ -260,12 +256,12 @@ sudo apt upgrade -y
 ```bash
 sudo apt install -y curl wget unzip git software-properties-common
 ```
-(installs several useful command-line tools on a Debian/Ubuntu-based Linux system)
+installs several useful command-line tools on a Debian/Ubuntu-based Linux system
 
 ```bash
 git --version
 ```
-(git version 2.x.x)
+git version 2.x.x
 
 ```bash
 sudo apt install apache2 -y
@@ -278,16 +274,26 @@ sudo service apache2 start
 ```bash
 sudo service apache2 status
 ```
- (expected: active (running))
+ expected: active (running)
 
-**WSL2 note
-Apache will not automatically start after reboot unless configured. For development, manually starting it is fine.
-Test: When http://localhost is put inside Windows browser you should see "Apache2 Ubuntu Default Page"
+>[!NOTE:**WSL2 note]
+>Apache will not automatically start after reboot unless configured. For development, manually starting it is fine.
+>Test: When http://localhost is put inside Windows browser you should see "Apache2 Ubuntu Default Page"
 
-10. sudo apt install mysql-server -y (install)
-11. sudo service mysql start (start)
-12. sudo service mysql status (check)
-13. sudo mysql_secure_installation (secure)
+```bash
+sudo apt install mysql-server -y
+```
 
+```bash
+sudo service mysql start
+```
+
+```bash
+sudo service mysql status
+```
+
+```bash
+sudo mysql_secure_installation
+```
 
 ## I. Create Plugin
