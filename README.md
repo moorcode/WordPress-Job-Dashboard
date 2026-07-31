@@ -183,7 +183,7 @@ Job API Manager Plugin
 WordPress Pages
 ```
 
-# Repository Structure
+### Repository Structure
 
 ```text
 wordpress-job-dashboard/
@@ -231,36 +231,37 @@ wordpress-job-dashboard/
 
 ## Steps
 
-## 0. Set Up Environment
-#### Verify Ubuntu & Linux Kernel
-#### Update Ubuntu
-#### Install Basic Development Tools
-#### Install Apache Web Server, MySQL, PHP
-#### Secure Database
-#### Create WordPress Database
+### 0. Set Up Environment
+##### Verify Ubuntu & Linux Kernel
+##### Update Ubuntu
+##### Install Basic Development Tools
+##### Install Apache Web Server, MySQL, PHP
+##### Secure Database
+##### Create WordPress Database
 
 
 1. lsb_release -a (expected: Ubuntu 22.04 LTS or Ubuntu 22.04 LTS)
-uname -a (expected: microsoft-standard-WSL2)
+2. uname -a (expected: microsoft-standard-WSL2)
 
-sudo apt update
-sudo apt upgrade -y
 
-sudo apt install -y curl wget unzip git software-properties-common (installs several useful command-line tools on a Debian/Ubuntu-based Linux system)
-git --version (git version 2.x.x)
+3. sudo apt update
+4. sudo apt upgrade -y
 
-sudo apt install apache2 -y
-sudo service apache2 start
-sudo service apache2 status (expected: active (running))
+5. sudo apt install -y curl wget unzip git software-properties-common (installs several useful command-line tools on a Debian/Ubuntu-based Linux system)
+6. git --version (git version 2.x.x)
+
+7. sudo apt install apache2 -y
+8. sudo service apache2 start
+9. sudo service apache2 status (expected: active (running))
 
 **WSL2 note
 Apache will not automatically start after reboot unless configured. For development, manually starting it is fine.
 Test: When http://localhost is put inside Windows browser you should see "Apache2 Ubuntu Default Page"
 
-sudo apt install mysql-server -y (install)
-sudo service mysql start (start)
-sudo service mysql status (check)
-sudo mysql_secure_installation (secure)
+10. sudo apt install mysql-server -y (install)
+11. sudo service mysql start (start)
+12. sudo service mysql status (check)
+13. sudo mysql_secure_installation (secure)
 
 
 ## I. Create Plugin
