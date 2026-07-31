@@ -224,9 +224,10 @@ wordpress-job-dashboard/
 │
 └── .github/
     └── workflows/
-	├── php-tests.yml
-	├── coding-standards.yml
+		├── php-tests.yml
+		├── coding-standards.yml
         └── build.yml
+
 ```
 
 ---
