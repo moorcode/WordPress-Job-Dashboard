@@ -14,14 +14,7 @@
   - [Repository Structure](https://github.com/moorcode/WordPress-Job-Dashboard#repository-structure)
 - [Set Up the Development Environment](https://github.com/moorcode/WordPress-Job-Dashboard#environment)
 - [Create the custom plugin](https://github.com/moorcode/WordPress-Job-Dashboard#i-create-plugin)
-- Build the database and API framework
-- Connect to one API (e.g., Ashby)
-- Display job listings
-- Add search and filters
-- Add company pages and job details
-- Support multiple ATS providers (Ashby, Workday, Greenhouse, Lever)
-- Add user features like favorites and alerts
-- Polish it with a professional interface
+
 
 ---
 
