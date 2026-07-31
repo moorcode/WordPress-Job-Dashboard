@@ -29,7 +29,6 @@
 
 This manual lists the steps to build a job dashboard in WordPress. The steps recorded here were executed using an established environment, thus some essential steps could be missing for you, if you are establishing your dev environment for the first time.
 
----
 
 ### Purpose
 To demonstrate to WordPress / Automattic that I build plugins using WordPress features; To offer a native WordPress job search experience to  [moorcoders](https://moorcode.wordpress.com/).
@@ -39,8 +38,6 @@ To demonstrate to WordPress / Automattic that I build plugins using WordPress fe
 - Environment Setup (one-time)
 - WordPress & Plugin Setup (one-time)
 - Feature Development (iterative)
-
----
 
 ### Overall Architecture
 
@@ -235,6 +232,10 @@ wordpress-job-dashboard/
 	├── coding-standards.yml
         └── build.yml
 ```
+
+---
+
+##Steps
 
 ## 0. Set Up Environment
 ### Verify Ubuntu & Linux Kernel
